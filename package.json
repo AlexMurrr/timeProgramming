@@ -1,23 +1,19 @@
 {
   "name": "timing",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Work programming",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "test:unit": "vitest --environment jsdom"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "pinia": "^2.0.21",
-    "sqlite3": "^5.1.2",
-    "vue": "^3.2.38",
-    "vue-router": "^4.1.5"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexMurrr/timeProgramming.git"
   },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.3",
-    "@vue/test-utils": "^2.0.2",
-    "jsdom": "^20.0.0",
-    "vite": "^3.0.9",
-    "vitest": "^0.23.0"
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexMurrr/timeProgramming/issues"
+  },
+  "homepage": "https://github.com/AlexMurrr/timeProgramming#readme"
 }
