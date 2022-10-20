@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AlexMurrr/timeProgramming/issues"
   },
-  "homepage": "https://github.com/AlexMurrr/timeProgramming#readme"
+  "homepage": "https://github.com/AlexMurrr/timeProgramming#readme",
+  "dependencies": {
+    "sqlite3": "^5.1.2"
+  }
 }
