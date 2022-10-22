@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
     host     : 'localhost',
@@ -10,8 +10,7 @@ const connection = mysql.createConnection({
   connection.query("SELECT * FROM triangle;",
   function(err, results, fields) {
     console.log(err);
-    console.log(results); // собственно данные
-    console.log(fields); // мета-данные полей 
+    console.log(results); // собственно данные    
 });
 connection.end();
 
