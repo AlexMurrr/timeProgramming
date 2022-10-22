@@ -1,32 +1,18 @@
-const sqlite3 = require('sqlite3').verbose();
+const mysql = require('mysql');
 
-const db = new sqlite3.Database('timeOfProg.db', (err) => {
-    if (err) {
-      console.error(err.message);
-    }
-    console.log('Connected to the mock database.');
+const connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'AAAAAAA',
+    database : 'foo'
   });
 
-// const sql = `INSERT INTO users('firstName', 'lastname', 'id')
-//               VALUES (?,?,?)`;
-// db.run(sql, ['alex', 'mur', 1], (err)=>{
-//   if(err) console.log(err.message);
-// })
-
-const sql = `SELECT * FROM users`;
-
-db.all(sql, [], (err, rows)=>{
-  if(err) return console.log(err.message);
-  rows.forEach((row)=>{
-    console.log(row);
-  });
+  connection.query("SELECT * FROM triangle;",
+  function(err, results, fields) {
+    console.log(err);
+    console.log(results); // собственно данные
+    console.log(fields); // мета-данные полей 
 });
-
-db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-    console.log('Close the database connection.');
-  });
+connection.end();
 
   
