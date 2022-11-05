@@ -26,4 +26,4 @@ function a() {
 }
 
 let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", a());
+addBtn.addEventListener("click", a);
