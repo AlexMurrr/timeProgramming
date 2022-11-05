@@ -21,9 +21,3 @@
 //     console.log('Add successfull');
 // })}
 
-function a() {
-  console.log("yes");
-}
-
-let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", a);
