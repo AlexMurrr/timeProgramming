@@ -9,3 +9,19 @@ body {
     background: linear-gradient(to bottom, #00d2ff, #928dab);
     color: #fff;
   }
+  .btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 3px solid #f5f8fa;
+    outline: none;
+    transition: 1s ease-in-out;
+    font-size: 30px;
+    color: #f5f8fa;
+    border-radius: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
