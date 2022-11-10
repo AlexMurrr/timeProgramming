@@ -17,3 +17,5 @@ let db = new sqlite3.Database(dataSource, (err) => {
   db.run(insert, [Date.now(), 30])
 
   module.exports = db
+
+  
