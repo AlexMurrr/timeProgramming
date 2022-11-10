@@ -13,8 +13,8 @@ let db = new sqlite3.Database(dataSource, (err) => {
     console.log('Connected to the in-memory SQlite database.');
   });  
   
-  const insert = 'INSERT INTO timeSpend (timeMs, minuts) VALUES (?,?)'
-  db.run(insert, [Date.now(), 30])
+  // const insert = 'INSERT INTO timeSpend (timeMs, minuts) VALUES (?,?)'
+  // db.run(insert, [Date.now(), 30])
 
   module.exports = db
 
