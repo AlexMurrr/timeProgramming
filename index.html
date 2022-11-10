@@ -16,11 +16,19 @@
       <div class="add">
         Добавить 30 минут <br />
         <form action="http://localhost:3000">
-        <button id="addBtn" class="btn">+</button>
+        <button id="addBtn" class="btn"
+           onclick="alert('Добавил 30 минут')">+</button>
        </form> 
       </div>
   </div>
-  </body>
+  </body> 
 
   <script src="index.js"></script>
+
+
+  <script>
+    addBtn.onclick = function() {
+      alert('Спасибо');
+    };
+  </script>
 </html>
