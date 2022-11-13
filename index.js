@@ -1,67 +1,54 @@
-var express = require("express");
-var app = express();
-var db = require("./db.js")
+const http = require('http')
+const fs = require('fs')
+const path = require('path')
 
+const PORT = 3000
 
-const HTTP_PORT = 3000
-app.listen(HTTP_PORT,() => {
-    console.log("Server is listening on port " + HTTP_PORT)
-});
+const server = http.createServer((req, res)=>{
+  console.log('Server request')
+  res.setHeader('Content-Type', 'text/html')
 
-app.get("/", (req, res, next) => {
-   
-    const insert = 'INSERT INTO timeSpend (timeMs, minuts) VALUES (?,?)'
-    db.run(insert, [Date.now(), 30])
-
-});
-
-
-app.get("/result", (req, res, next) => {
-
-  var sql = "select * from timeSpend"
-  var params = []
-  db.all(sql, params, (err, rows) =>  {
-      if (err) {
-        res.status(400).json({"error":err.message});
-        return;
-      }
-      res.json({
-          "message":"success",
-          "data":rows
-      })
-    });
+const createPath = (page)=>path.resolve(__dirname, 'veiws', `${page}.html`)
+  let basePath = ''
+  
+  switch(req.url){
+      case '/':
+      case '/home':
+      case '/index.html':        
+          basePath = createPath('index')
+          res.statusCode = 200
+          break
+      case '/contact':
+          basePath = createPath('contact')
+          res.statusCode = 200
+          break
+      case '/about-us':
+          res.statusCode = 301
+          res.setHeader('Location', '/contact')
+          res.end()
+          break
+      default:
+          basePath = createPath('error')   
+          res.statusCode = 404
+          break    
+  }
 
   
-});
+      fs.readFile(basePath, (err, data)=>{
+          if(err){
+              console.log(err)
+              res.end()
+          } else {
+              res.write(data)
+              res.end()
+      }
+  })
+  
+})
 
-
-
-
-
-
-
-//const mysql = require('mysql2');
-
-// const connection = mysql.createConnection({
-//     host     : 'localhost',
-//     user     : 'root',
-//     password : 'AAAAAAA',
-//     database : 'timeprogramming'
-//   });
-
-// let nowMiliSeconds = Date.now();
-
-// const sql = 'INSERT INTO time (timestamp) VALUES(?)';
-
-// function queryInsert(){
-// connection.connect((err) => {
-//     if (err) throw err;
-//     console.log('Connected to MySQL Server!');
-//   });
-// connection.query(sql, nowMiliSeconds, (err, res)=>{
-//     if(err) console.log(err.message);
-//     console.log('Add successfull');
-// })}
+server.listen(PORT, 'localhost', (err)=>{
+  err ? console.log(err) : console.log(`listen port ${PORT}`)
+})
 
 
 

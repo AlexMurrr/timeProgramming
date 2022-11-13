@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- <link rel="stylesheet" href="../styleindex.css" /> -->
+<style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Roboto', sans-serif;
+      font-size: 40px;
+      background: linear-gradient(to bottom, #00d2ff, #928dab);
+      color: #fff;
+    }
+    .btn {
+      width: 180px;
+      height: 60px;
+      cursor: pointer;
+      background: transparent;
+      border: 3px solid #f5f8fa;
+      outline: none;
+      transition: 1s ease-in-out;
+      font-size: 30px;
+      color: #f5f8fa;
+      border-radius: 15%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+    }
+  
+    .look{   
+      margin-bottom: 40px;
+    }
+  
+    .addJs{
+      margin-bottom: 40px;
+    }
+  
+    .timeMusic{
+      margin-bottom: 40px;
+    }
+  
+    #submit{
+      font-size: 20px;
+      border: 3px solid #f5f8fa;  
+      width: 180px;
+      height: 35px;
+      background: transparent;
+      border-radius: 10%;
+      outline:none;
+      color: #f5f8fa;
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .music::placeholder {
+      color: rgb(246, 251, 252);
+      font-size: 17px;
+      opacity: .5;
+    }
+</style>
+
+  </head>
+  <body>
+    <div>
+      <div class="look">
+        Посмотреть результат
+        <form action="./charts.html">
+          <button id="addBtn1" class="btn">сюда</button>
+        </form> 
+      </div>
+      <div class="addJs">
+        Добавить 30 минут JS<br />
+        <form action="http://localhost:3000/">
+        <button id="addBtn2" class="btn"
+           >+</button>
+       </form> 
+      </div>
+      <div class="timeMusic">
+        Добавить врeмя музыки 
+        <form action="">
+          <input type="text" id="submit" class="music" placeholder="Количество времени"/>
+          <button id="addBtn3" class="btn">+</button>
+        </form> 
+      </div>
+  </div>
+  </body>  
+ 
+</html>
