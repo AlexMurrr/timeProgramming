@@ -22,8 +22,10 @@ app.get("/add", (req, res, next) => {
 });
 
 app.get('/chart', (req, res)=>{
-    res.sendFile(path.resolve(__dirname, 'charts.html'))
+    res.sendFile('D:/myJS/Timing/public/charts.html')
 })
+
+console.log(`${__dirname}/public/index.html)`)
 
 app.get("/result", (req, res, next) => {
 
