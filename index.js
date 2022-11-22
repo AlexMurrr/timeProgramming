@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var db = require("./db.js")
+const path = require('path');
 
 
 const HTTP_PORT = 3000
@@ -8,13 +9,21 @@ app.listen(HTTP_PORT,() => {
     console.log("Server is listening on port " + HTTP_PORT)
 });
 
-app.get("/", (req, res, next) => {
-   
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/',function (request, response) {
+    response.sendFile(`${__dirname}/public/index.html`);
+});
+
+app.get("/add", (req, res, next) => {   
     const insert = 'INSERT INTO timeSpend (timeMs, minuts) VALUES (?,?)'
     db.run(insert, [Date.now(), 30])
 
 });
 
+app.get('/chart', (req, res)=>{
+    res.sendFile(path.resolve(__dirname, 'charts.html'))
+})
 
 app.get("/result", (req, res, next) => {
 
@@ -29,9 +38,7 @@ app.get("/result", (req, res, next) => {
           "message":"success",
           "data":rows
       })
-    });
-
-  
+    });  
 });
 
 
