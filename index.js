@@ -2,9 +2,10 @@ var express = require("express");
 var app = express();
 var db = require("./db.js")
 const path = require('path');
+const cors = require("cors");
 
-
-const HTTP_PORT = 3000
+const HTTP_PORT = 8080
+app.use(cors());
 app.listen(HTTP_PORT,() => {
     console.log("Server is listening on port " + HTTP_PORT)
 });
@@ -12,7 +13,7 @@ app.listen(HTTP_PORT,() => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/',function (request, response) {
-    response.sendFile(`${__dirname}/public/index.html`);
+    response.sendFile(`${__dirname}/index.html`);
 });
 
 app.get("/add", (req, res, next) => {   
