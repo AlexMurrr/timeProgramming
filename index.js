@@ -3,6 +3,10 @@ var app = express();
 var db = require("./db.js")
 const path = require('path');
 const cors = require("cors");
+const formateDate = require('./formatDate.js');
+
+let getArrDate = formateDate.getArrDate;
+
 
 const HTTP_PORT = 8080
 app.use(cors());
@@ -41,9 +45,12 @@ app.get("/result", (req, res, next) => {
       res.json({
           "message":"success",
           "data":rows
-      })
+        })
     });  
 });
+
+console.log(getArrDate())
+
 
 
 
