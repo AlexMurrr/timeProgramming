@@ -21,8 +21,8 @@ app.get('/',function (request, response) {
 });
 
 app.get("/add", (req, res, next) => {   
-    const insert = 'INSERT INTO timeSpend (timeMs, minuts) VALUES (?,?)'
-    db.run(insert, [Date.now(), 30])
+    const insert = 'INSERT INTO dateSpendTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)'
+    db.run(insert, getArrDate())
 
 });
 
@@ -35,7 +35,7 @@ console.log(`${__dirname}/public/index.html`)
 
 app.get("/result", (req, res, next) => {
 
-  var sql = "select * from timeSpend"
+  var sql = "select * from  dateSpendTime"
   var params = []
   db.all(sql, params, (err, rows) =>  {
       if (err) {
@@ -43,8 +43,8 @@ app.get("/result", (req, res, next) => {
         return;
       }
       res.json({
-          "message":"success",
-          "data":rows
+          //"message":"success",
+          rows
         })
     });  
 });

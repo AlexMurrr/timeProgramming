@@ -32,7 +32,7 @@ function getDayFromNumber (num){
 
 function getArrDate (){
     return [date.getFullYear(), date.getMonth() + 1, date.getDate(), 
-        getDayFromNumber(date.getDay())]
+        getDayFromNumber(date.getDay()), 30]
 }
 
 exports.getArrDate = getArrDate;
