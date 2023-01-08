@@ -35,3 +35,21 @@ const myChart = new Chart(ctx, {
     }
 });
 
+// async function getData(){
+//     const res = await fetch('http://localhost:8080/result');
+//     const time = await res.json();
+//     return time; 
+//}
+
+// let response = await fetch('http://localhost:8080/result');
+// let commits = await response.json();
+
+//console.log(commits.data);
+
+const address = fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then((response) => response.json())
+  .then((user) => {
+    return user.address;
+  });
+
+console.log(address);

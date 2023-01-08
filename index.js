@@ -43,8 +43,8 @@ app.get("/result", (req, res, next) => {
         return;
       }
       res.json({
-          //"message":"success",
-          rows
+          "message":"success",
+          "data":rows
         })
     });  
 });
