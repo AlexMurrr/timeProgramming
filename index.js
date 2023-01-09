@@ -46,6 +46,11 @@ app.get("/result", (req, res, next) => {
   });
 });
 
+import { addTwo } from './formatDate.js';
+
+
+console.log(addTwo(4));
+
 console.log(getArrDate());
 
 //const mysql = require('mysql2');
