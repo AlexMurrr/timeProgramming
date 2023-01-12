@@ -1,4 +1,7 @@
+const jestDate = require('jest-date');
 const formateDate = require("./formatDate");
+
+const toBeBefore = jestDate.toBeBefore;
 
 const getDayFromNumber = formateDate.getDayFromNumber;
 const getArrDate = formateDate.getArrDate;
@@ -12,8 +15,15 @@ describe('check function getDayFromNumber', ()=>{
     })  
 })
 
-describe('check function getArrDate', ()=>{
+describe('check function getArrDate', ()=>{    
+
     test('is arr', ()=>{
         expect(Array.isArray(getArrDate())).toBeTruthy();
     });
+
+    test('toBeBefore', ()=>{
+        expect(new Date('1970')).toBeBefore(new Date(getArrDate()[0].toString()));
+    });
+
 })
+

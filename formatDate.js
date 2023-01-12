@@ -39,6 +39,6 @@ function getArrDate() {
   ];
 }
 
+console.log(new Date(getArrDate()[0].toString()));
 
-exports.getArrDate = getArrDate;
-exports.getDayFromNumber = getDayFromNumber;
+module.exports = { getArrDate, getDayFromNumber};
