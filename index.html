@@ -6,6 +6,16 @@
     <link rel="stylesheet" type="text/css" href="styleindex.css" />
   </head>
   <body>
+<!-- 
+    <h1>Введите данные</h1>
+    <form method="post" action="/">
+        <label>Имя</label><br>
+        <input type="text" name="userName" /><br><br>
+        <label>Возраст</label><br>
+        <input type="number" name="userAge" /><br><br>
+        <input type="submit" value="Отправить" />
+    </form> -->
+
     <div>
       <div class="look">
         Посмотреть результат
@@ -23,12 +33,13 @@
       </div>
       <div class="timeMusic">
         Добавить врeмя музыки
-        <form action="">
+        <form  method="post" action="/a">
           <input
-            type="text"
+            type="number"
+            name="musicTime"
             id="submit"
-            class="music"
-            placeholder="Количество времени"
+            class="music"            
+            placeholder="Количество минут"
           />
           <button id="addBtn3" class="btn">+</button>
         </form>

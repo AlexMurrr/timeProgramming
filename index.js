@@ -15,6 +15,8 @@ app.listen(HTTP_PORT, () => {
 
 app.use(express.static(path.join(__dirname, "public")));
 
+const urlencodedParser = express.urlencoded({extended: false});
+
 app.get("/", function (request, response) {
   response.sendFile(`${__dirname}/index.html`);
 });
@@ -44,6 +46,18 @@ app.get("/result", (req, res, next) => {
       data: rows,
     });
   });
+});
+
+// app.post("/", urlencodedParser, function (request, response) {
+//   if(!request.body) return response.sendStatus(400);
+//   console.log(request.body);
+//   response.send(`${request.body.musicTime}`);
+// });
+
+app.post("/a", (req, res, next) => {
+  const insert =
+    "INSERT INTO musicTime(time) VALUES (?)";
+  db.run(insert, [3]);
 });
 
 
