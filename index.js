@@ -6,6 +6,7 @@ const cors = require("cors");
 const formateDate = require("./formatDate.js");
 
 let getArrDate = formateDate.getArrDate;
+let arrGetDateForProg = formateDate.arrGetDateForProg;
 
 const HTTP_PORT = 8080;
 app.use(cors());
@@ -24,7 +25,7 @@ app.get("/", function (request, response) {
 app.get("/add", (req, res, next) => {
   const insert =
     "INSERT INTO dateSpendTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
-  db.run(insert, getArrDate());
+  db.run(insert, getArrDate(30));
 });
 
 app.get("/chart", (req, res) => {
@@ -48,21 +49,23 @@ app.get("/result", (req, res, next) => {
   });
 });
 
-// app.post("/", urlencodedParser, function (request, response) {
-//   if(!request.body) return response.sendStatus(400);
-//   console.log(request.body);
-//   response.send(`${request.body.musicTime}`);
-// });
-
-app.post("/a", (req, res, next) => {
-  const insert =
-    "INSERT INTO musicTime(time) VALUES (?)";
-  db.run(insert, [3]);
+app.post("/", urlencodedParser, function (request, response) {
+  const insert ="INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
+  db.run(insert, getArrDate(request.body.musicTime));
 });
 
+// app.post("/a", (req, res, next) => {
+//   const insert =
+//     "INSERT INTO musicTime(time) VALUES (?)";
+//   //db.run(insert, [req.body.musicTime]);
+//   res.send(req.body.musicTime);
+// });
 
 
-console.log(getArrDate());
+
+
+
+console.log(getArrDate(30));
 
 //const mysql = require('mysql2');
 

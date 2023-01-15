@@ -29,16 +29,16 @@ function getDayFromNumber(num) {
   return dayWeek;
 }
 
-function getArrDate() {
+function getArrDate(minutes) {
   return [
     date.getFullYear(),
     date.getMonth() + 1,
     date.getDate(),
     getDayFromNumber(date.getDay()),
-    30,
+    minutes   
   ];
 }
 
-console.log(new Date(getArrDate()[0].toString()));
+let arrGetDateForProg = getArrDate().push(30);
 
-module.exports = { getArrDate, getDayFromNumber};
+module.exports = { getArrDate, getDayFromNumber, arrGetDateForProg};
