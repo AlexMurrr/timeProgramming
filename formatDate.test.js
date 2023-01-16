@@ -18,12 +18,16 @@ describe('check function getDayFromNumber', ()=>{
 describe('check function getArrDate', ()=>{    
 
     test('is arr', ()=>{
-        expect(Array.isArray(getArrDate())).toBeTruthy();
+        expect(Array.isArray(getArrDate(30))).toBeTruthy();
     });
 
     test('toBeBefore', ()=>{
-        expect(new Date('1970')).toBeBefore(new Date(getArrDate()[0].toString()));
+        expect(new Date('1970')).toBeBefore(new Date(getArrDate(30)[0].toString()));
     });
-
+    
+    test('last element of array', ()=>{
+        expect(getArrDate(30)[getArrDate(30).length-1]).toBe(30);
+    });
+   
 })
 
