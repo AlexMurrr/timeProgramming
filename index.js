@@ -35,7 +35,7 @@ app.get("/chart", (req, res) => {
 console.log(`${__dirname}/public/index.html`);
 
 app.get("/result", (req, res, next) => {
-  var sql = "select * from  dateSpendTime";
+  var sql = "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM dateSpendTime group by dateOfMonth";
   var params = [];
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -53,17 +53,6 @@ app.post("/", urlencodedParser, function (request, response) {
   const insert ="INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
   db.run(insert, getArrDate(request.body.musicTime));
   });
-
-// app.post("/a", (req, res, next) => {
-//   const insert =
-//     "INSERT INTO musicTime(time) VALUES (?)";
-//   //db.run(insert, [req.body.musicTime]);
-//   res.send(req.body.musicTime);
-// });
-
-
-
-
 
 console.log(getArrDate(30));
 
