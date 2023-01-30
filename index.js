@@ -6,7 +6,7 @@ const cors = require("cors");
 const formateDate = require("./formatDate.js");
 
 let getArrDate = formateDate.getArrDate;
-let arrGetDateForProg = formateDate.arrGetDateForProg;
+
 
 const HTTP_PORT = 8080;
 app.use(cors());
@@ -53,6 +53,8 @@ app.post("/", urlencodedParser, function (request, response) {
   const insert ="INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
   db.run(insert, getArrDate(request.body.musicTime));
   });
+
+//app.get("/charts" )
 
 console.log(getArrDate(30));
 

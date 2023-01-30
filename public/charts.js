@@ -36,11 +36,13 @@ const myChart = new Chart(ctx, {
   },
 });
 
-// async function getData(){
-//     const res = await fetch('http://localhost:8080/result');
-//     const time = await res.json();
-//     return time;
-// }
+async function getData(){
+    const res = await fetch('http://localhost:8080/result');
+    const time = await res.json();
+    console.log(time);
+}
+
+
 
 // let response = await fetch('http://localhost:8080/result');
 // let commits = await response.json();
@@ -53,4 +55,4 @@ const myChart = new Chart(ctx, {
 //     return user.address;
 //   });
 
-// console.log(getData());
+ console.log(getData());

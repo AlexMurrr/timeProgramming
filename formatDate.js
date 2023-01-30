@@ -39,6 +39,10 @@ function getArrDate(minutes) {
   ];
 }
 
-let arrGetDateForProg = getArrDate().push(30);
+function getSumTime (arr){
+  return arr.reduce((acc, cur)=> acc + cur.minutes, sum);
+}
 
-module.exports = { getArrDate, getDayFromNumber, arrGetDateForProg};
+
+
+module.exports = { getArrDate, getDayFromNumber, getSumTime};
