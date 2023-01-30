@@ -5,6 +5,7 @@ const toBeBefore = jestDate.toBeBefore;
 
 const getDayFromNumber = formateDate.getDayFromNumber;
 const getArrDate = formateDate.getArrDate;
+const getSumTime = formateDate.getSumTime;
 
 describe('check function getDayFromNumber', ()=>{
     test('return sunday', () => {
@@ -31,5 +32,14 @@ describe('check function getArrDate', ()=>{
    
 })
 
+describe('check function getSumTime', ()=>{
+
+    const resBD = [{a:1,minutes:2}, {b:1, minutes:2}]
+
+    test('return sum',()=>{
+        expect(getSumTime(resBD)).toBe(4)
+    })
+    
+})
 
 

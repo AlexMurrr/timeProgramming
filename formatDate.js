@@ -40,7 +40,7 @@ function getArrDate(minutes) {
 }
 
 function getSumTime (arr){
-  return arr.reduce((acc, cur)=> acc + cur.minutes, sum);
+  return arr.reduce((acc, cur)=> acc + cur.minutes, 0);
 }
 
 
