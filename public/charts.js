@@ -39,6 +39,7 @@ const myChart = new Chart(ctx, {
 });
 
 let sumTime = document.getElementById('sumTime');
+let sumMusic = document.getElementById('sumMusic');  
 
 function getSumTime (arr){
   return arr.reduce((acc, cur)=> acc + cur.countminutes, 0);
@@ -46,8 +47,11 @@ function getSumTime (arr){
 
 async function getData(){
     const res = await fetch('http://localhost:8080/result');
+    const resMusic = await fetch('http://localhost:8080/countMusic')
     const time = await res.json();
+    const timeMusic = await resMusic.json();
     sumTime.innerHTML += getSumTime(time.data);
+    sumMusic.innerHTML += getSumTime(timeMusic.data);
 }
 
 
