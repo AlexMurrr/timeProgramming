@@ -1,3 +1,5 @@
+//import getSumTime from '../formatDate';
+
 const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
   type: "pie",
@@ -36,10 +38,14 @@ const myChart = new Chart(ctx, {
   },
 });
 
+function getSumTime (arr){
+  return arr.reduce((acc, cur)=> acc + cur.countminutes, 0);
+}
+
 async function getData(){
     const res = await fetch('http://localhost:8080/result');
     const time = await res.json();
-    console.log(time);
+    console.log(getSumTime(time.data));
 }
 
 
