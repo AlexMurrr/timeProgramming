@@ -2,7 +2,7 @@
   "name": "timing",
   "version": "1.0.0",
   "description": "Work programming",
-  "main": "index.js",  
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "pretty": "npx prettier --write .",

@@ -35,14 +35,12 @@ function getArrDate(minutes) {
     date.getMonth() + 1,
     date.getDate(),
     getDayFromNumber(date.getDay()),
-    minutes   
+    minutes,
   ];
 }
 
-function getSumTime (arr){
-  return arr.reduce((acc, cur)=> acc + cur.minutes, 0);
+function getSumTime(arr) {
+  return arr.reduce((acc, cur) => acc + cur.minutes, 0);
 }
 
-
-
-module.exports = { getArrDate, getDayFromNumber, getSumTime};
+module.exports = { getArrDate, getDayFromNumber, getSumTime };

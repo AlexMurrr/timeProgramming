@@ -7,7 +7,6 @@ const formateDate = require("./formatDate.js");
 
 let getArrDate = formateDate.getArrDate;
 
-
 const HTTP_PORT = 8080;
 app.use(cors());
 app.listen(HTTP_PORT, () => {
@@ -16,7 +15,7 @@ app.listen(HTTP_PORT, () => {
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const urlencodedParser = express.urlencoded({extended: false});
+const urlencodedParser = express.urlencoded({ extended: false });
 
 app.get("/", function (request, response) {
   response.sendFile(`${__dirname}/index.html`);
@@ -35,7 +34,8 @@ app.get("/chart", (req, res) => {
 console.log(`${__dirname}/public/index.html`);
 
 app.get("/result", (req, res, next) => {
-  var sql = "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM dateSpendTime group by dateOfMonth";
+  var sql =
+    "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM dateSpendTime group by dateOfMonth";
   var params = [];
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -50,7 +50,8 @@ app.get("/result", (req, res, next) => {
 });
 
 app.get("/countMusic", (req, res, next) => {
-  var sql = "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM musicTime group by dateOfMonth";
+  var sql =
+    "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM musicTime group by dateOfMonth";
   var params = [];
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -65,9 +66,10 @@ app.get("/countMusic", (req, res, next) => {
 });
 
 app.post("/", urlencodedParser, function (request, response) {
-  const insert ="INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
+  const insert =
+    "INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
   db.run(insert, getArrDate(request.body.musicTime));
-  });
+});
 
 //app.get("/charts" )
 

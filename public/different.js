@@ -1,9 +1,8 @@
-    // document.getElementById("addBtn3").onclick = function(e) {
+// document.getElementById("addBtn3").onclick = function(e) {
 
-    // document.getElementById("submit").value = "fdsfdsf";
-    // }
+// document.getElementById("submit").value = "fdsfdsf";
+// }
 
-    document.getElementById("addBtn3").onclick = function(e) {
-
-    document.getElementById("submit").value = "";
-    }
+document.getElementById("addBtn3").onclick = function (e) {
+  document.getElementById("submit").value = "";
+};
