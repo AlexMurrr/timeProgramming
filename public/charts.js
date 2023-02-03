@@ -7,13 +7,21 @@ function getSumTime(arr) {
   return arr.reduce((acc, cur) => acc + cur.countminutes, 0);
 }
 
+function minutesToHour (mins) {
+  let hours = Math.trunc(mins/60);
+  let minutes = mins % 60;
+    return hours + ' hours : ' + minutes + ' minutes';
+}
+
 async function getData() {
   const resProg = await fetch("http://localhost:8080/result");
   const resMusic = await fetch("http://localhost:8080/countMusic");
   const timeProg = await resProg.json();
   const timeMusic = await resMusic.json();
-  sumProg.innerHTML += getSumTime(timeProg.data) + " minutes - programming";
-  sumMusic.innerHTML += getSumTime(timeMusic.data) + " minutes - music";
+  const minsProg = getSumTime(timeProg.data);
+  const minsMusic = getSumTime(timeMusic.data);
+  sumProg.innerHTML += minsProg + " minutes of programming it is " + minutesToHour (minsProg);
+  sumMusic.innerHTML += minsMusic + " minutes - music it is " + minutesToHour(minsMusic);
 
   const myChart = new Chart(ctx, {
     type: "pie",
