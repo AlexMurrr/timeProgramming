@@ -1,18 +1,18 @@
 const ctx = document.getElementById("myChart").getContext("2d");
 
-let sumTime = document.getElementById("sumTime");
-let sumMusic = document.getElementById("sumMusic");
+let sumProg = document.getElementById("h3TimeProg");
+let sumMusic = document.getElementById("h3TimeMusic");
 
 function getSumTime(arr) {
   return arr.reduce((acc, cur) => acc + cur.countminutes, 0);
 }
 
 async function getData() {
-  const res = await fetch("http://localhost:8080/result");
+  const resProg = await fetch("http://localhost:8080/result");
   const resMusic = await fetch("http://localhost:8080/countMusic");
-  const time = await res.json();
+  const timeProg = await resProg.json();
   const timeMusic = await resMusic.json();
-  sumTime.innerHTML += getSumTime(time.data) + " minutes - programming";
+  sumProg.innerHTML += getSumTime(timeProg.data) + " minutes - programming";
   sumMusic.innerHTML += getSumTime(timeMusic.data) + " minutes - music";
 
   const myChart = new Chart(ctx, {
@@ -22,7 +22,7 @@ async function getData() {
       datasets: [
         {
           label: "# of Votes",
-          data: [getSumTime(time.data), getSumTime(timeMusic.data)],
+          data: [getSumTime(timeProg.data), getSumTime(timeMusic.data)],
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             "rgba(54, 162, 235, 0.2)",
