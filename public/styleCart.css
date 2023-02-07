@@ -8,6 +8,7 @@ body{
   height: 450px;
   margin: 0 auto;
 }
+
 #h3TimeProg{
   font-size: 25px;
   color: rgb(141, 43, 43);
@@ -23,11 +24,18 @@ body{
   margin-bottom: 20px;
 }
 
-
 #sumMusic {  
   color: rgb(104, 99, 96);
 }
 
 #begin{
   color: rgb(104, 99, 96);
+}
+
+.btnBack{
+  background-color: rgb(178, 230, 230);
+  width: 100px;
+  height: 30px;
+  border: 2px solid rgb(172, 181, 231);
+  border-radius: 4px;
 }
