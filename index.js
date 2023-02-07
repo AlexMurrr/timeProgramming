@@ -25,6 +25,7 @@ app.get("/add", (req, res, next) => {
   const insert =
     "INSERT INTO dateSpendTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
   db.run(insert, getArrDate(30));
+  res.sendFile(`${__dirname}/index.html`);
 });
 
 app.get("/chart", (req, res) => {
@@ -69,6 +70,7 @@ app.post("/", urlencodedParser, function (request, response) {
   const insert =
     "INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
   db.run(insert, getArrDate(request.body.musicTime));
+  response.sendFile(`${__dirname}/index.html`);
 });
 
 //app.get("/charts" )

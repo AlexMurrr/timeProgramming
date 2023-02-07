@@ -26,14 +26,14 @@ async function getData() {
   const myChart = new Chart(ctx, {
     type: "pie",
     data: {
-      labels: ["Programming", "Music"],
+      labels: ["Programming","Music"],
       datasets: [
         {
           label: "# of Votes",
-          data: [getSumTime(timeProg.data), getSumTime(timeMusic.data)],
+          data: [minsProg, minsMusic],
           backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 99, 132, 0.2)",          
+            "rgba(54, 162, 235, 0.2)",            
           ],
           borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
           borderWidth: 3,
