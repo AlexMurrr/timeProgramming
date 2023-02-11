@@ -13,6 +13,16 @@ function minutesToHour (mins) {
     return hours + ' hours : ' + minutes + ' minutes';
 }
 
+function differentDate(){
+  let minutes = Math.floor((new Date() - new Date(2023, 0, 13))/60000);
+  let day = Math.floor(minutes/60/24);
+  return day;
+}
+
+function averageForDay(minutes){
+  return minutes/60/differentDate();
+}
+
 async function getData() {
   const resProg = await fetch("http://localhost:8080/result");
   const resMusic = await fetch("http://localhost:8080/countMusic");
@@ -20,8 +30,8 @@ async function getData() {
   const timeMusic = await resMusic.json();
   const minsProg = getSumTime(timeProg.data);
   const minsMusic = getSumTime(timeMusic.data);
-  sumProg.innerHTML += minsProg + " minutes of programming it is " + minutesToHour (minsProg);
-  sumMusic.innerHTML += minsMusic + " minutes - music it is " + minutesToHour(minsMusic);
+  sumProg.innerHTML += minsProg + " minutes of programming it is " + minutesToHour (minsProg) + ", average for day " + averageForDay(minsProg);
+  sumMusic.innerHTML += minsMusic + " minutes - music it is " + minutesToHour(minsMusic) + ", average for day " + averageForDay(minsMusic);
 
   const myChart = new Chart(ctx, {
     type: "pie",
