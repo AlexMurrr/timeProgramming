@@ -24,6 +24,8 @@ function averageForDay(minutes){
   return minutes/60/differentDate();
 }
 
+const dream = 8*60;
+
 async function getData() {
   const resProg = await fetch("http://localhost:8080/result");
   const resMusic = await fetch("http://localhost:8080/countMusic");
@@ -60,20 +62,26 @@ async function getData() {
     },
   });
 
+  const otherActivity = 24 - 8 - averageForDay(minsProg) - averageForDay(minsMusic);
 
   const myChart1 = new Chart(ctx1, {
     type: "pie",
     data: {
-      labels: ["Programming","Music"],
+      labels: ["Programming","Music", "Other"],
       datasets: [
         {
           label: "# of Votes",
-          data: [minsProg, minsMusic],
+          data: [averageForDay(minsProg), averageForDay(minsMusic) , otherActivity],
           backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",          
-            "rgba(54, 162, 235, 0.2)",            
+            "rgba(255, 99, 132, 0.3)",          
+            "rgba(54, 162, 235, 0.2)", 
+            "rgba(10, 16, 235, 0.15)",                                
           ],
-          borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+          borderColor: [
+            "rgba(255, 99, 132, 1)", 
+            "rgba(54, 162, 235, 1)",
+            "rgba(10, 20, 235, 0.6)", 
+          ],
           borderWidth: 3,
         },
       ],
