@@ -39,3 +39,10 @@ body{
   border: 2px solid rgb(172, 181, 231);
   border-radius: 4px;
 }
+
+.activity{
+  color: rgb(63, 59, 57);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
