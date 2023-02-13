@@ -46,3 +46,8 @@ body{
   justify-content: center;
   margin-bottom: 40px;
 }
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
