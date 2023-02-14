@@ -1,11 +1,12 @@
 body{
   background-color: rgb(248, 243, 239);
+  height: 800px;
 }
 
 .chart {
   background-color: rgb(250, 242, 242);
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
 }
 
@@ -33,11 +34,14 @@ body{
 }
 
 .btnBack{
-  background-color: rgb(178, 230, 230);
+  background-color: rgb(213, 243, 243);
   width: 100px;
-  height: 30px;
-  border: 2px solid rgb(172, 181, 231);
+  height: 50px;
+  border: 2px solid rgb(211, 216, 245);
   border-radius: 4px;
+  position: fixed;
+  font-size: 17px;
+  color: rgb(104, 99, 96);
 }
 
 .activity{
