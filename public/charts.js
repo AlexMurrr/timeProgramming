@@ -1,8 +1,9 @@
 const ctx = document.getElementById("myChart").getContext("2d");
 const ctx1 = document.getElementById("myChart1").getContext("2d");
 
-let sumProg = document.getElementById("h3TimeProg");
-let sumMusic = document.getElementById("h3TimeMusic");
+const sumProg = document.getElementById("h3TimeProg");
+const sumMusic = document.getElementById("h3TimeMusic");
+const dates = document.getElementById("dates");
 
 function getSumTime(arr) {
   return arr.reduce((acc, cur) => acc + cur.countminutes, 0);
@@ -23,6 +24,13 @@ function differentDate(){
 function averageForDay(minutes){
   return minutes/60/differentDate();
 }
+
+function today(){
+  const date = new Date();
+  return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
+}
+
+dates.innerHTML += "Today: " + today();
 
 const dream = 8*60;
 
