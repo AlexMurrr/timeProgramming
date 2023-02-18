@@ -1,6 +1,8 @@
-import {getTimeProg} from "../models/timingModels.js";
+const timingModels = require("../models/timingModels.js");
 
-export const showTime = (req, res) => {
+const  getTimeProg = timingModels.getTimeProg;
+
+const showTime = (req, res) => {
     getTimeProg((err, results) => {
         if(err){
             res.send(err)
@@ -9,3 +11,5 @@ export const showTime = (req, res) => {
         }
     })
 }
+
+module.exports = {showTime};

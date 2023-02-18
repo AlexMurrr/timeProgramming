@@ -1,6 +1,6 @@
-import sqlite3 from "sqlite3";
+const sqlite3 = require("sqlite3").verbose();
 
-const dataSource = "timeOfProg.db";
+const dataSource = "time.db";
 
 const db = new sqlite3.Database(dataSource, (err) => {
   if (err) {
@@ -9,4 +9,4 @@ const db = new sqlite3.Database(dataSource, (err) => {
   console.log("Connected to the in-memory SQlite database.");
 });
 
-export default db;
+module.exports = db;

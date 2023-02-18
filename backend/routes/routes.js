@@ -1,9 +1,10 @@
-import express from "express";
+const express = require("express");
 
-import {showTime} from "../controllers/time.js";
+const time = require("../controllers/time.js");
+const showTime = time.showTime;
 
 const router = express.Router();
 
 router.get("/new", showTime);
 
-export default router;
+module.exports = router;

@@ -1,8 +1,8 @@
-import db from "../config/db.js";
+const db = require("../config/db.js");
 
-export const getTimeProg = (result) => {
+const getTimeProg = (result) => {
     var sql =
-    "SELECT * FROM musicTime";   
+    "SELECT * FROM test";   
     db.all(sql,[], (err, results) => {
         if (err) {
             console.log(err);
@@ -12,3 +12,5 @@ export const getTimeProg = (result) => {
         }
     });
 }
+
+module.exports = {getTimeProg};
