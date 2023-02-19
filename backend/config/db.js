@@ -1,6 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 
-const dataSource = "time.db";
+const dataSource = "../timeOfProg.db";
 
 const db = new sqlite3.Database(dataSource, (err) => {
   if (err) {
