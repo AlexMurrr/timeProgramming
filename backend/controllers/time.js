@@ -12,4 +12,4 @@ const showTime = (req, res) => {
     })
 }
 
-module.exports = {showTime};
+module.exports = {showTime, send};

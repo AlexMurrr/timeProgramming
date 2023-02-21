@@ -2,7 +2,7 @@ const db = require("../config/db.js");
 
 const getTimeProg = (result) => {
     var sql =
-    "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM dateSpendTime group by dateOfMonth";   
+    "SELECT SUM(minutes) AS countminutes FROM dateSpendTime";   
     db.all(sql,[], (err, results) => {
         if (err) {
             console.log(err);

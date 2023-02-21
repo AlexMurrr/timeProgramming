@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="styleCart.css" />
+  </head>
+  <body>
+    <div>
+      <h1 id="dates">Begining: 13.01.2023 <br></h1>      
+    </div>
+    <div id="sumTime">
+      <h3 id="h3TimeProg"></h3>
+      <h3 id="h3TimeMusic"></h3>      
+
+    </div>   
+    <div class="wrapper">
+      <div class="chart">
+        <h1 class="activity">Prog and Music</h1>
+      <canvas id="myChart"></canvas>
+    </div>  
+      <div class="chart">
+        <h1 class="activity">Activity for day</h1>
+      <canvas id="myChart1"></canvas>
+    </div>
+    </div> 
+    
+    <form method="get" action="/">
+      <button class="btnBack" type="submit">Back</button>
+    </form>
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+  <script src="charts.js"></script>
+</html>
