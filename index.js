@@ -70,7 +70,8 @@ app.post("/", urlencodedParser, function (request, response) {
   const insert =
     "INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
   db.run(insert, getArrDate(request.body.musicTime));
-  response.sendFile(`${__dirname}/index.html`);
+  response.redirect('/')
+  //response.sendFile(`${__dirname}/index.html`);
 });
 
 
