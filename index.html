@@ -23,17 +23,20 @@
       </div>
       <div class="timeMusic">
         Добавить врeмя музыки
-        <form method="post" action="/">
+        <form  id="formMusic" method="post" action="/">
           <input
-            type="text"
+            required
+            number 
+            type="number"
             name="musicTime"
             id="submit"
             class="music"
             placeholder="Количество минут"
           />
-          <button type="submit" id="addBtn3" class="btn">+</button>
+          <button type="submit" id="btnMusic" class="btn">+</button>
         </form>
       </div>
     </div>
   </body>
+  <script src="./index1.js"></script>
 </html>
