@@ -1,9 +1,7 @@
 const timingModels = require("../models/timingModels.js");
-const ex = require('../../frontend/static/ex.js');
 const path = require('path');
 
 const  getTimeProg = timingModels.getTimeProg;
-const timeNow = ex.getTime;
 
 const showTime = (req, res) => {
     getTimeProg((err, results) => {
@@ -16,8 +14,7 @@ const showTime = (req, res) => {
 }
 
 const sendIndex = (req, res) => {
-    res.sendFile('D:/myJS/Timing/frontend/static/index.html');
-    console.log(path.resolve('../frontend/static/', 'index.html'));
+    res.sendFile('index.html');   
 }
 
 
