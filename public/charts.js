@@ -4,6 +4,7 @@ const ctx1 = document.getElementById("myChart1").getContext("2d");
 const sumProg = document.getElementById("h3TimeProg");
 const sumMusic = document.getElementById("h3TimeMusic");
 const dates = document.getElementById("dates");
+const minPerDay = document.getElementById('h3PerDay');
 
 function getSumTime(arr) {
   return arr.reduce((acc, cur) => acc + cur.countminutes, 0);
@@ -34,14 +35,20 @@ dates.innerHTML += "Today: " + today();
 
 const dream = 8*60;
 
+async function timeForDay(){
+  const minDay = await fetch('http://localhost:8080/forday');
+  const minDayJ = await minDay.json();  
+  minPerDay.innerHTML += minDayJ.data[0].summin + " minutes programming today";
+}
+
 async function getData() {
   const resProg = await fetch("http://localhost:8080/result");
   const resMusic = await fetch("http://localhost:8080/countMusic");
   const timeProg = await resProg.json();
-  const timeMusic = await resMusic.json();
+  const timeMusic = await resMusic.json();  
   const minsProg = getSumTime(timeProg.data);
   const minsMusic = getSumTime(timeMusic.data);
-  sumProg.innerHTML += minsProg + " minutes of programming it is " + minutesToHour (minsProg) + ", average for day - " + averageForDay(minsProg);
+  sumProg.innerHTML += minsProg + " minutes of programming it is " +  minutesToHour (minsProg) + ", average for day - " + averageForDay(minsProg);
   sumMusic.innerHTML += minsMusic + " minutes - music it is " + minutesToHour(minsMusic) + ", average for day - " + averageForDay(minsMusic);
 
   const myChart = new Chart(ctx, {
@@ -104,7 +111,7 @@ async function getData() {
   });
 
 }
-
+timeForDay();
 getData();
 
 // const myChart = new Chart(ctx, {
@@ -143,3 +150,5 @@ getData();
 //     },
 //   },
 // });
+
+

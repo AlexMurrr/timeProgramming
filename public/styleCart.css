@@ -25,6 +25,13 @@ body{
   margin-bottom: 20px;
 }
 
+#h3PerDay{
+  font-size: 25px;
+  color: rgb(133, 89, 53); 
+  margin: 10px;
+  margin-left: 50px; 
+}
+
 #sumMusic {  
   color: rgb(83, 79, 76);
 }
