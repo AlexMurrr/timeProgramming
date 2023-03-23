@@ -58,3 +58,9 @@ body {
   font-size: 17px;
   opacity: 0.5;
 }
+
+.fish::placeholder {
+  color: rgb(246, 251, 252);
+  font-size: 17px;
+  opacity: 0.5;
+}
