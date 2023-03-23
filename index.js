@@ -89,6 +89,12 @@ app.post("/", urlencodedParser, function (request, response) {
   response.redirect('/');  
 });
 
+app.post("/addFishTime", urlencodedParser, function (request, response) {
+  const insert =
+    "INSERT INTO fishTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
+  db.run(insert, getArrDate(request.body.fishTime));
+  response.redirect('/');  
+});
 
 
 
