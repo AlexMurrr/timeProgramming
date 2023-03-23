@@ -50,22 +50,6 @@ app.get("/result", (req, res, next) => {
   });
 });
 
-app.get("/countMusic", (req, res, next) => {
-  var sql =
-    "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM musicTime group by dateOfMonth";
-  var params = [];
-  db.all(sql, params, (err, rows) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: rows,
-    });
-  });
-});
-
 app.get('/forday', (req, res, next) => {
   const date = new Date();
   const sql = `select sum(minutes) as summin from dateSpendtime where month = ${date.getMonth()+1} and dateOfMonth = ${date.getDate()} and year = ${date.getFullYear()}`;
@@ -82,6 +66,22 @@ app.get('/forday', (req, res, next) => {
   });
 })
 
+app.get("/countMusic", (req, res, next) => {
+  var sql =
+    "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM musicTime group by dateOfMonth";
+  var params = [];
+  db.all(sql, params, (err, rows) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: rows,
+    });
+  });
+});
+
 app.post("/", urlencodedParser, function (request, response) {
   const insert =
     "INSERT INTO musicTime(year, month, dateOfMonth, dayOfWeek, minutes) VALUES (?,?,?,?,?)";
@@ -95,6 +95,24 @@ app.post("/addFishTime", urlencodedParser, function (request, response) {
   db.run(insert, getArrDate(request.body.fishTime));
   response.redirect('/');  
 });
+
+app.get('/sumFishTime', (req, res, next) => {
+  const date = new Date();
+  const sql = 'select sum(minutes) as summin from fishTime';
+  const params = [];
+  db.all(sql, params, (err, rows) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: rows,
+    });
+  });
+})
+
+
 
 
 

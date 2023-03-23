@@ -22,7 +22,7 @@ body{
   color: rgb(88, 88, 165);
   margin: 10px;
   margin-left: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #h3PerDay{
@@ -30,6 +30,13 @@ body{
   color: rgb(133, 89, 53); 
   margin: 10px;
   margin-left: 50px; 
+}
+
+#h3FishTime{
+  font-size: 25px;
+  color: rgb(112, 54, 6); 
+  margin: 10px;
+  margin-left: 50px;
 }
 
 #sumMusic {  

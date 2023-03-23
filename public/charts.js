@@ -5,6 +5,7 @@ const sumProg = document.getElementById("h3TimeProg");
 const sumMusic = document.getElementById("h3TimeMusic");
 const dates = document.getElementById("dates");
 const minPerDay = document.getElementById('h3PerDay');
+const fishTime = document.getElementById("h3FishTime");
 
 function getSumTime(arr) {
   return arr.reduce((acc, cur) => acc + cur.countminutes, 0);
@@ -44,26 +45,31 @@ async function timeForDay(){
 async function getData() {
   const resProg = await fetch("http://localhost:8080/result");
   const resMusic = await fetch("http://localhost:8080/countMusic");
+  const sumFish = await fetch("http://localhost:8080/sumFishTime")
   const timeProg = await resProg.json();
   const timeMusic = await resMusic.json();  
+  const sumFishing = await sumFish.json();
   const minsProg = getSumTime(timeProg.data);
   const minsMusic = getSumTime(timeMusic.data);
+  const sumTimeFish = sumFishing.data[0].summin
   sumProg.innerHTML += minsProg + " minutes of programming it is " +  minutesToHour (minsProg) + ", average for day - " + averageForDay(minsProg);
   sumMusic.innerHTML += minsMusic + " minutes - music it is " + minutesToHour(minsMusic) + ", average for day - " + averageForDay(minsMusic);
+  fishTime.innerHTML += sumTimeFish + ' minutes - fishing, it is ' + minutesToHour(sumTimeFish)+ ", average for day - " + averageForDay(sumTimeFish);
 
   const myChart = new Chart(ctx, {
     type: "pie",
     data: {
-      labels: ["Programming","Music"],
+      labels: ["Programming","Music", "Fishing"],
       datasets: [
         {
           label: "# of Votes",
-          data: [minsProg, minsMusic],
+          data: [minsProg, minsMusic, sumTimeFish],
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",          
-            "rgba(54, 162, 235, 0.2)",            
+            "rgba(54, 162, 235, 0.2)", 
+            "rgba(150, 140, 235, 0.2)",           
           ],
-          borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+          borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(150, 140, 235, 1)"],
           borderWidth: 3,
         },
       ],
@@ -82,20 +88,22 @@ async function getData() {
   const myChart1 = new Chart(ctx1, {
     type: "pie",
     data: {
-      labels: ["Programming","Music", "Other"],
+      labels: ["Programming","Music", "Other", "Fishing"],
       datasets: [
         {
           label: "# of Votes",
-          data: [averageForDay(minsProg), averageForDay(minsMusic) , otherActivity],
+          data: [averageForDay(minsProg), averageForDay(minsMusic), otherActivity, averageForDay(sumTimeFish)],
           backgroundColor: [
             "rgba(255, 99, 132, 0.3)",          
             "rgba(54, 162, 235, 0.2)", 
-            "rgba(10, 16, 235, 0.15)",                                
+            "rgba(10, 16, 235, 0.15)",   
+            "rgba(150, 140, 235, 0.2)",                             
           ],
           borderColor: [
             "rgba(255, 99, 132, 1)", 
             "rgba(54, 162, 235, 1)",
             "rgba(10, 20, 235, 0.6)", 
+            "rgba(150, 140, 235, 1)",
           ],
           borderWidth: 3,
         },
