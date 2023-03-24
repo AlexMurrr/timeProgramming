@@ -39,7 +39,7 @@ const dream = 8*60;
 async function timeForDay(){
   const minDay = await fetch('http://localhost:8080/forday');
   const minDayJ = await minDay.json();  
-  minPerDay.innerHTML += minDayJ.data[0].summin + " minutes programming today";
+  minPerDay.innerHTML += minDayJ.data[0].summin + " minutes programming today - " + minDayJ.data[0].summin/60 + " hours";
 }
 
 async function getData() {
