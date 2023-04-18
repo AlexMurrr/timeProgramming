@@ -1,5 +1,6 @@
 const ctx = document.getElementById("myChart").getContext("2d");
 const ctx1 = document.getElementById("myChart1").getContext("2d");
+const ctx2 = document.getElementById("myChart2").getContext("2d");
 
 const sumProg = document.getElementById("h3TimeProg");
 const sumMusic = document.getElementById("h3TimeMusic");
@@ -55,6 +56,33 @@ async function getData() {
   sumProg.innerHTML += minsProg + " minutes of programming it is " +  minutesToHour (minsProg) + ", average for day - " + averageForDay(minsProg);
   sumMusic.innerHTML += minsMusic + " minutes - music it is " + minutesToHour(minsMusic) + ", average for day - " + averageForDay(minsMusic);
   fishTime.innerHTML += sumTimeFish + ' minutes - fishing, it is ' + minutesToHour(sumTimeFish)+ ", average for day - " + averageForDay(sumTimeFish);
+
+  const myChart2 = new Chart(ctx2, {
+    type: "pie",
+    data: {
+      labels: ["Programming","Music"],
+      datasets: [
+        {
+          label: "# of Votes",
+          data: [minsProg, minsMusic],
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",          
+            "rgba(54, 162, 235, 0.2)", 
+                       
+          ],
+          borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
 
   const myChart = new Chart(ctx, {
     type: "pie",
