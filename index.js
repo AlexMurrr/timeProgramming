@@ -32,8 +32,6 @@ app.get("/chart", (req, res) => {
   res.sendFile(`${__dirname}/public/charts.html`);
 });
 
-console.log(`${__dirname}/public/index.html`);
-
 app.get("/result", (req, res, next) => {
   var sql =
     "SELECT dateOfMonth, SUM(minutes) AS countminutes FROM dateSpendTime group by dateOfMonth";
@@ -96,8 +94,7 @@ app.post("/addFishTime", urlencodedParser, function (request, response) {
   response.redirect('/');  
 });
 
-app.get('/sumFishTime', (req, res, next) => {
-  const date = new Date();
+app.get('/sumFishTime', (req, res, next) => {  
   const sql = 'select sum(minutes) as summin from fishTime';
   const params = [];
   db.all(sql, params, (err, rows) => {

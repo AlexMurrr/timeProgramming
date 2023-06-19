@@ -18,5 +18,4 @@ const sendIndex = (req, res) => {
 }
 
 
-
 module.exports = {showTime, sendIndex};
