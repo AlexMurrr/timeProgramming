@@ -38,7 +38,7 @@ body {
   margin-bottom: 40px;
 }
 
-#submit {
+input {
   font-size: 20px;
   border: 3px solid #f5f8fa;
   width: 180px;
@@ -63,4 +63,9 @@ body {
   color: rgb(246, 251, 252);
   font-size: 17px;
   opacity: 0.5;
+}
+
+.inputMoney{
+  display: flex;
+  gap: 10px;
 }
