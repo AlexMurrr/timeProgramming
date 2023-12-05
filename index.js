@@ -94,6 +94,13 @@ app.post("/addFishTime", urlencodedParser, function (request, response) {
   response.redirect('/');  
 });
 
+app.post("/money", urlencodedParser, function (request, response) {
+  const insert =
+    "INSERT INTO money (date) VALUES (?)";
+  db.run(insert, request.body.date);
+  response.redirect('/');  
+});
+
 app.get('/sumFishTime', (req, res, next) => {  
   const sql = 'select sum(minutes) as summin from fishTime';
   const params = [];
