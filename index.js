@@ -96,8 +96,8 @@ app.post("/addFishTime", urlencodedParser, function (request, response) {
 
 app.post("/money", urlencodedParser, function (request, response) {
   const insert =
-    "INSERT INTO money (date) VALUES (?)";
-  db.run(insert, request.body.date);
+    "INSERT INTO money (date, sum) VALUES (?,?)";
+  db.run(insert, [request.body.date, request.body.sum]);
   response.redirect('/');  
 });
 
